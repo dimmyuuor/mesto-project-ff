@@ -22,9 +22,8 @@ initialCards.forEach(function (card) {
   cardElement.append(templateElement);
 });
 
-
 document.querySelector('body').onclick = function(e) {
   if(e.target.className != 'card__delete-button') return
-  let item = e.target.closest('.card');
+  const item = e.target.closest('.card');
   item.remove()
 }
