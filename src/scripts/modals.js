@@ -11,7 +11,7 @@ export function closeModal(popup) {
     document.removeEventListener("mousedown", closeModalOverlay);
 };
 //закрытие модального окна по эскейт
-export function closeModalEsc(evt) {
+function closeModalEsc(evt) {
     if(evt.key === "Escape") {
         const popupOpened = document.querySelector(".popup_is-opened");
         closeModal(popupOpened);

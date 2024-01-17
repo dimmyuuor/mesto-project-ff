@@ -25,3 +25,33 @@
     line-height: 17px;
   }
 }
+
+.popup__button_disabled {
+  background: #fff;
+  color: #c4c4c4;
+  border: 1px solid #c4c4c4;
+}
+
+.popup__button_disabled:hover {
+  background-color: #fff;
+  cursor: default;
+}
+
+.popup__input_type_error {
+  border-bottom-color: red;
+} 
+
+.popup__error_visible {
+  color: #F00;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  display: flex;
+}
+
+.popup__label__set {
+  margin-bottom: 10px;
+}

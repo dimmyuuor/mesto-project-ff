@@ -34,24 +34,48 @@
                 <div class="popup__content">
                     <button type="button" class="popup__close"></button>
                     <h3 class="popup__title">Редактировать профиль</h3>
-                    <form class="popup__form" name="edit-profile">
-                        <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="Имя" required />
-                        <input type="text" name="description" class="popup__input popup__input_type_description" placeholder="Занятие" required />
-                        <button type="submit" class="button popup__button">Сохранить</button>
+
+                    
+                    <form class="popup__form" name="edit-profile" novalidate>
+                        <fieldset class="popup__set">
+                            <label class="popup__label__set">
+                                <input id="name-input" type="text" pattern="[a-zA-Zа-яА-ЯЁё\s\-]+$" minlength="2" maxlength="40" name="name" class="popup__input popup__input_type_name" placeholder="Имя" data-error-message="Разрешены только латинские и кириллические буквы, знаки дефиса и пробелы." required />
+                                <span class="form__input-error name-input-error"></span>
+                            </label>
+                            <label class="popup__label">
+                                <input id="work-input" type="text" pattern="^[a-zA-Zа-яА-Я\s\-]+$" minlength="2" maxlength="200" name="description" class="popup__input popup__input_type_description" placeholder="Занятие" data-error-message="Разрешены только латинские и кириллические буквы, знаки дефиса и пробелы." required />
+                                <span class="form__input-error work-input-error"></span>
+                            </label>
+                            <button type="submit" class="button popup__button">Сохранить</button>
+                        </fieldset>
                     </form>
                 </div>
+
+
             </div>
             <div class="popup popup_type_new-card popup_is-animated">
                 <div class="popup__content">
                     <button type="button" class="popup__close"></button>
                     <h3 class="popup__title">Новое место</h3>
-                    <form class="popup__form" name="new-place">
-                        <input type="text" name="place-name" class="popup__input popup__input_type_card-name" placeholder="Название" required />
-                        <input type="url" name="link" class="popup__input popup__input_type_url" placeholder="Ссылка на картинку" required />
-                        <button type="submit" class="button popup__button">Сохранить</button>
+
+
+                    <form class="popup__form" name="new-place" novalidate>
+                        <fieldset class="popup__set">
+                            <label class="popup__label__set">
+                                <input id="place-input" type="text" pattern="[a-zA-Zа-яА-ЯЁё\s\-]+$" data-error-message="Разрешены только латинские и кириллические буквы, знаки дефиса и пробелы."minlength="2" maxlength="30" name="place-name" class="popup__input popup__input_type_card-name" placeholder="Название" required />
+                                <span class="place-input-error form__input-error"></span>
+                            </label>
+                            <label class="popup__label">
+                                <input id="url-input" type="url" name="link" class="popup__input popup__input_type_url" pattern="^https?:\/\/[^ "]+$" placeholder="Ссылка на картинку" data-error-message="Введите адрес сайта." required />
+                                <span class="url-input-error form__input-error"></span>
+                            </label>
+                            <button type="submit" class="button popup__button">Сохранить</button>
+                        </fieldset>
                     </form>
                 </div>
             </div>
+
+
             <div class="popup popup_type_image popup_is-animated">
                 <div class="popup__content popup__content_content_image">
                     <button type="button" class="popup__close"></button>

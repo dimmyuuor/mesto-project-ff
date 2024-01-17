@@ -10,6 +10,7 @@ import {
     openModal,
     closeModal
 } from "./scripts/modals.js";
+import { clearValidation, enableValidation } from "./scripts/validation.js";
 
 const editButton = document.querySelector(".profile__edit-button"); //кнопка редактировать профиль
 const editPopup = document.querySelector(".popup_type_edit"); //попап редактировать профиль
@@ -21,12 +22,23 @@ const profileName = document.querySelector(".profile__title");
 const profileJob = document.querySelector(".profile__description");
 const popupCaption = document.querySelector(".popup__caption");
 const popupImage = document.querySelector(".popup__image");
-const formElement = document.forms["edit-profile"];
-const nameProfile = formElement.elements.name;
-const jobInput = formElement.elements.description; 
+const formEditProfile = document.forms["edit-profile"];
+const nameProfile = formEditProfile.elements.name;
+const jobInput = formEditProfile.elements.description; 
 const newPlaceForm = document.forms["new-place"];
 const newCardName = newPlaceForm.elements["place-name"];
 const newCardLink = newPlaceForm.elements.link;
+
+const validationConfig = ({
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible',
+    popupSet: '.popup__set'
+}); 
+
 //добавление карточек из массива
 initialCards.forEach((card) => {
     const place = createCard(card, deleteCard, likeCard, watchImageCard);
@@ -34,12 +46,14 @@ initialCards.forEach((card) => {
 });
 //обработчик на модальное окно редактирования профиль 
 editButton.addEventListener("click", () => {
+    clearValidation(editPopup, validationConfig)
     openModal(editPopup);
     nameProfile.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
 });
 //обработчик на модальное окно добавить карточку
 addButton.addEventListener("click", () => {
+    clearValidation(addCardPopup, validationConfig);
     openModal(addCardPopup);
 });
 //функция закрытия модального окна по клику на крестик
@@ -59,7 +73,7 @@ function handleFormSubmit(evt) {
     closeModal(editPopup);
 };
 //отправка формы редактирования профиля
-formElement.addEventListener("submit", handleFormSubmit);
+formEditProfile.addEventListener("submit", handleFormSubmit);
 //функция просмотра картинки карточки
 function watchImageCard(popup, link, name) {
     openModal(popupTypeImage);
@@ -77,3 +91,17 @@ function handlerFormSubmitAdd(evt) {
 };
 //обработчик формы добавления карточки
 newPlaceForm.addEventListener("submit", handlerFormSubmitAdd);
+
+enableValidation(validationConfig);
+
+
+
+
+
+
+
+
+
+
+
+
