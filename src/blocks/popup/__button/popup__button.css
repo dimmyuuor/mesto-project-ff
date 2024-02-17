@@ -11,7 +11,7 @@
   border-radius: 2px;
   border: none;
   transition: visibility 0s, background 0.3s;
-  margin-top: 48px;
+  margin-top: 22px;
 }
 
 .popup__button:hover {
@@ -27,31 +27,12 @@
 }
 
 .popup__button_disabled {
-  background: #fff;
-  color: #c4c4c4;
+  background: rgba(0,0,0,.2);
+  color: #fff;
   border: 1px solid #c4c4c4;
 }
 
 .popup__button_disabled:hover {
-  background-color: #fff;
+  background-color: rgba(0,0,0,.2);
   cursor: default;
-}
-
-.popup__input_type_error {
-  border-bottom-color: red;
-} 
-
-.popup__error_visible {
-  color: #F00;
-  font-family: Inter;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  position: absolute;
-  display: flex;
-}
-
-.popup__label__set {
-  margin-bottom: 10px;
 }

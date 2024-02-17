@@ -1,11 +1,4 @@
 .popup__form {
-  margin-top: 27px;
+  margin-top: 46px;
 }
 
-.popup__set {
-  border: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-}

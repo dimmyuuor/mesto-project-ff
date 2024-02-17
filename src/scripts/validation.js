@@ -28,24 +28,11 @@ function checkInputValidity (validationConfig, formElement, inputElement) {
 function setEventListeners (validationConfig, formElement) {
     const inputList = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
     const buttonElement = formElement.querySelector(validationConfig.submitButtonSelector);
-    toggleButtonState(inputList, buttonElement);
+    toggleButtonState(validationConfig, inputList, buttonElement);
     inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', function () {
         checkInputValidity(validationConfig, formElement, inputElement);
         toggleButtonState(validationConfig, inputList, buttonElement);
-      });
-    });
-};
-
-export function enableValidation (validationConfig) {
-    const formList = Array.from(document.querySelectorAll(validationConfig.formSelector));
-    formList.forEach((formElement) => {
-      formElement.addEventListener('submit', function (evt) {
-        evt.preventDefault();
-      });
-      const fieldsetList = Array.from(formElement.querySelectorAll(validationConfig.popupSet));
-      fieldsetList.forEach((fieldset) => {
-        setEventListeners(fieldset);
       });
     });
 };
@@ -66,7 +53,17 @@ function toggleButtonState(validationConfig, inputList, buttonElement) {
     }
 };
 
-export function clearValidation(validationConfig, formElement) {
+export function enableValidation (validationConfig) {
+  const formList = Array.from(document.querySelectorAll(validationConfig.formSelector));
+  formList.forEach((formElement) => {
+    formElement.addEventListener('submit', function (evt) {
+      evt.preventDefault();
+    });
+    setEventListeners(validationConfig, formElement);
+  });
+};
+
+export function clearValidation(formElement, validationConfig) {
     const inputList = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
     const buttonElement = formElement.querySelector(validationConfig.submitButtonSelector);
     inputList.forEach((inputElement) => {

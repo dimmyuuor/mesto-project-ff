@@ -1,0 +1,4 @@
+.popup-error {
+    transform: translateX(0);
+    background-color: rgb(172, 5, 5);
+}

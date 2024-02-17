@@ -1,0 +1,40 @@
+ 
+.popup__error_visible {
+  color: #F00;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  display: flex;
+}
+
+.popup-error_is-opened {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.popup-error {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  max-inline-size: 280px;
+  min-block-size: 50px;
+  margin: 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #fff;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 12px;
+  text-align: center;
+  background-color: rgb(204, 0, 0);
+  transition: transform 0.3s, opacity 0.8s;
+  transform: translateX(350px);
+  opacity: 0;
+  pointer-events: none;
+}
