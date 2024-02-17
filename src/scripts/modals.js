@@ -23,9 +23,6 @@ function closeModalOverlay(evt) {
     }
 };
 
-
-
-
 export function showPopupError(description) {
     const popupError = document.querySelector('.popup-error');
     const popupErrorDesctiption = popupError.querySelector('.popup-error__description');

@@ -97,7 +97,7 @@ function handleLikeCard(evt, card, countOfLikes, profileId) {
   }
 }
 
-function renderCard(card, handleClickImage, profileId, position) {
+export function renderCard(card, handleClickImage, profileId, position) {
   const newCard = createCard(card, handleLikeCard, handleClickImage, profileId);
   switch (position) {
     case 'start':
@@ -108,4 +108,3 @@ function renderCard(card, handleClickImage, profileId, position) {
   }
 }
 
-export { renderCard };
